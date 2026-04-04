@@ -1,16 +1,15 @@
 export const initialStore=()=>{
   return{
-    message: null,
-    todos: [
+    persons: [
       {
-        id: 1,
-        title: "Make the bed",
-        background: null,
+        uid: 1,
+        name: "Luke Skywalker",
+        url: "https://www.swapi.tech/api/people/1"
       },
       {
-        id: 2,
-        title: "Do my homework",
-        background: null,
+        "uid": "2",
+        "name": "C-3PO",
+        "url": "https://www.swapi.tech/api/people/2"
       }
     ]
   }
@@ -18,13 +17,10 @@ export const initialStore=()=>{
 
 export default function storeReducer(store, action = {}) {
   switch(action.type){
-    case 'add_task':
-
-      const { id,  color } = action.payload
-
+    case 'add_person':
       return {
         ...store,
-        todos: store.todos.map((todo) => (todo.id === id ? { ...todo, background: color } : todo))
+        persons: action.payload
       };
     default:
       throw Error('Unknown action.');
