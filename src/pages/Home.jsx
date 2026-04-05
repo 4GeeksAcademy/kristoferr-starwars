@@ -1,14 +1,15 @@
-import rigoImageUrl from "../assets/img/rigo-baby.jpg";
 import { PersonCard } from "../components/PersonCard.jsx";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
+import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
 
   const {store, dispatch} =useGlobalReducer()
+  const navigate = useNavigate();
 
 	return (
 		<div className="container">
-			<div className="row">
+			<div className="row d-flex overflow-auto gap-3">
 				<h1>Characters</h1>
 				<div className="characters d-flex">
 					{store.persons.map((person)=>{
