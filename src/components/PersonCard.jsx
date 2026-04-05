@@ -17,7 +17,7 @@ export const PersonCard = (person) => {
                 <div className="card-hair">Hair-Color: {person.person.hair}</div>
                 <div className="card-eyes">Eye-Color: {person.person.eyes}</div>
                 <button 
-                onClick={() => navigate("/")}
+                onClick={() => navigate("/person/"+ person.person.uid)}
                 className="btn btn-primary mt-3">Learn More</button>
                 <button className="btn btn-warning justify-content-end mt-3 ms-3"><FaRegHeart /></button>
             </div>
