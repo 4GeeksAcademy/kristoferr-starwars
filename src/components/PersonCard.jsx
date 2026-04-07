@@ -19,7 +19,12 @@ export const PersonCard = (person) => {
                 <button 
                 onClick={() => navigate("/person/"+ person.person.uid)}
                 className="btn btn-primary mt-3">Learn More</button>
-                <button className="btn btn-warning justify-content-end mt-3 ms-3"><FaRegHeart /></button>
+                <button 
+                onClick={(event)=> dispatch({
+                    type: "add_favorite",
+                    payload: person.person
+                })}
+                className="btn btn-warning justify-content-end mt-3 ms-3"><FaRegHeart /></button>
             </div>
         </div>
     );

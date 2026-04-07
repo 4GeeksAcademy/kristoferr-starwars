@@ -1,5 +1,14 @@
 export const initialStore=()=>{
   return{
+    favorites: [{
+  "uid": 1,
+  "name": "Luke Skywalker",
+  "url": "https://www.swapi.tech/api/people/1",
+  "image": "https://github.com/breatheco-de/swapi-images/blob/master/public/images/people/1.jpg?raw=true",
+  "gender": "male",
+  "hair": "blond",
+  "eyes": "blue"
+}],
     persons: [
       {
         uid: 1,
@@ -83,6 +92,19 @@ export default function storeReducer(store, action = {}) {
       return {
         ...store,
         persons: action.payload
+      };
+      // case: "update_planets":
+      //   return {
+      //     ...store,
+      //     planets: action.payload
+      //   };
+    case 'add_favorite':
+      return {
+        ...store,
+        favorites: [
+          ...store.favorites,
+          action.payload
+        ]
       };
     default:
       throw Error('Unknown action.');

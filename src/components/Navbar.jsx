@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import useGlobalReducer from "../hooks/useGlobalReducer";
 
 export const Navbar = () => {
+
+	const {store, dispatch} = useGlobalReducer();
 
 	return (
 		<nav className="navbar navbar-light bg-light">
@@ -12,7 +15,16 @@ export const Navbar = () => {
 				</Link>
 				<div className="ml-auto">
 					<Link to="/demo">
-						<button className="btn btn-primary">Check the Context in action</button>
+						<div class="dropdown">
+							<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Favorites {store.favorites.length}
+							</button>
+							<ul class="dropdown-menu">
+								{store.favorites.map((favorite)=>{
+									return (<li class="dropdown-item">{favorite.name}</li>);
+								})}
+							</ul>
+						</div>
 					</Link>
 				</div>
 			</div>
