@@ -15,11 +15,11 @@ export const Navbar = () => {
 				</Link>
 				<div className="ml-auto">
 					<Link to="/demo">
-						<div class="dropdown">
-							<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+						<div className="dropdown">
+							<button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Favorites {store.favorites.length}
 							</button>
-							<ul class="dropdown-menu">
+							<ul className="dropdown-menu">
 								{store.favorites.map((favorite)=>{
 									return (<li class="dropdown-item">{favorite.name}</li>);
 								})}

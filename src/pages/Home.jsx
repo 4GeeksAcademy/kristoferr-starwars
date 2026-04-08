@@ -1,12 +1,13 @@
 import { PersonCard } from "../components/PersonCard.jsx";
 import { VehicleCard } from "../components/VehicleCard.jsx";
+import { PlanetCard } from "../components/PlanetCard.jsx";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import { useNavigate } from "react-router-dom";
 
 export const Home = () => {
 
-  const {store, dispatch} =useGlobalReducer()
-  const navigate = useNavigate();
+  	const {store, dispatch} =useGlobalReducer()
+  	const navigate = useNavigate();
 
 	return (
 		<div className="container">
@@ -24,6 +25,15 @@ export const Home = () => {
 				<div className="characters d-flex">
 					{store.vehicles.map((vehicle)=>{
 						return <VehicleCard vehicle={vehicle} key={vehicle.uid}/>;
+					})}
+				</div>
+			</div>
+
+			<div className="row d-flex overflow-auto gap-3 m-5">
+				<h1>Planets</h1>
+				<div className="characters d-flex">
+					{store.planets.map((planet)=>{
+						return <PlanetCard planet={planet} key={planet.uid}/>;
 					})}
 				</div>
 			</div>
