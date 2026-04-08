@@ -14,18 +14,18 @@ export const Navbar = () => {
 					</span>
 				</Link>
 				<div className="ml-auto">
-					<Link to="/demo">
-						<div className="dropdown">
-							<button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-								Favorites {store.favorites.length}
-							</button>
-							<ul className="dropdown-menu">
-								{store.favorites.map((favorite)=>{
-									return (<li class="dropdown-item">{favorite.name}</li>);
-								})}
-							</ul>
-						</div>
-					</Link>
+					<div className="dropdown">
+						<button className="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Favorites {store.favorites.length}
+						</button>
+						<ul className="dropdown-menu">
+							{store.favorites.map((favorite)=>{
+								return (<li onClick={(event)=> 
+									console.log("testing click", favorite.uid)
+								} className="dropdown-item">{favorite.name}</li>);
+							})}
+						</ul>
+					</div>
 				</div>
 			</div>
 		</nav>

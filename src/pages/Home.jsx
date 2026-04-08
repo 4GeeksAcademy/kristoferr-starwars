@@ -3,11 +3,70 @@ import { VehicleCard } from "../components/VehicleCard.jsx";
 import { PlanetCard } from "../components/PlanetCard.jsx";
 import useGlobalReducer from "../hooks/useGlobalReducer.jsx";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export const Home = () => {
 
   	const {store, dispatch} =useGlobalReducer()
   	const navigate = useNavigate();
+
+	async function getAllPersons(){
+		
+		const url = "https://www.swapi.tech/api/people?page=1&limit=83";
+		const response = await fetch(url);
+		const body = await response.json();
+		const personData = body.results;
+		//console.log("i have loaded persons", personData);
+		const action = {
+			type: "add_person",
+			payload: personData
+		};
+		dispatch(action);
+	}
+
+	async function getAllVehicles(){
+		
+		const url = "https://www.swapi.tech/api/vehicles?page=1&limit=83";
+		const response = await fetch(url);
+		const body = await response.json();
+		const vehicleData = body.results;
+		//console.log("i have loaded persons", personData);
+		const action = {
+			type: "add_vehicle",
+			payload: vehicleData
+		};
+		dispatch(action);
+	}
+
+	async function getAllPlanets(){
+		
+		const url = "https://www.swapi.tech/api/planets?page=1&limit=83";
+		const response = await fetch(url);
+		const body = await response.json();
+		const planetData = body.results;
+		//console.log("i have loaded persons", personData);
+		const action = {
+			type: "add_planet",
+			payload: planetData
+		};
+		dispatch(action);
+	}
+
+	useEffect(()=>{
+		getAllPersons();
+		getAllVehicles();
+		getAllPlanets();
+	},[]);
+
+// 	useEffect(() => {
+// 		async function loadData() {
+// 			await getAllPersons();
+// 			await getAllVehicles();
+// 			await getAllPlanets();
+// 		}
+
+// 		loadData();
+// }, []);
 
 	return (
 		<div className="container">
