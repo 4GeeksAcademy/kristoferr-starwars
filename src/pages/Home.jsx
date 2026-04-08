@@ -26,7 +26,7 @@ export const Home = () => {
 
 	async function getAllVehicles(){
 		
-		const url = "https://www.swapi.tech/api/vehicles?page=1&limit=83";
+		const url = "https://www.swapi.tech/api/vehicles?page=1&limit=40";
 		const response = await fetch(url);
 		const body = await response.json();
 		const vehicleData = body.results;
@@ -40,7 +40,7 @@ export const Home = () => {
 
 	async function getAllPlanets(){
 		
-		const url = "https://www.swapi.tech/api/planets?page=1&limit=83";
+		const url = "https://www.swapi.tech/api/planets?page=1&limit=61";
 		const response = await fetch(url);
 		const body = await response.json();
 		const planetData = body.results;
