@@ -2,3 +2,399 @@
     width:150px;
     height:75px;
 }
+/* ===== STAR WARS DARK COMMAND THEME ===== */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root{
+  --bg: #07090f;
+  --bg-2: #0c1018;
+  --panel: #11151d;
+  --panel-2: #171c26;
+  --line: rgba(255,255,255,0.08);
+  --line-strong: rgba(255,255,255,0.16);
+  --text: #e9edf7;
+  --muted: #8a92a6;
+  --red: #ff3b32;
+  --blue: #2f6bff;
+  --glow-red: 0 0 18px rgba(255, 59, 50, 0.18);
+  --glow-blue: 0 0 18px rgba(47, 107, 255, 0.18);
+}
+
+/* page */
+html, body{
+  background:
+    radial-gradient(circle at top left, rgba(47,107,255,0.08), transparent 30%),
+    radial-gradient(circle at top right, rgba(255,59,50,0.06), transparent 30%),
+    linear-gradient(180deg, #04060b 0%, #090c13 100%);
+  color: var(--text);
+  font-family: 'Rajdhani', sans-serif;
+  min-height: 100%;
+}
+
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 100% 4px, 4px 100%;
+  opacity: 0.07;
+  mix-blend-mode: screen;
+}
+
+/* main container */
+.container{
+  max-width: 1450px !important;
+  padding-top: 28px;
+  padding-bottom: 40px;
+}
+
+/* each section row */
+.container > .row{
+  position: relative;
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 26px 20px 24px 20px;
+  margin-top: 38px !important;
+  margin-bottom: 38px !important;
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.5),
+    inset 0 1px 0 rgba(255,255,255,0.03);
+  overflow: hidden;
+}
+
+.container > .row::before{
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--red), rgba(255,59,50,0));
+  opacity: 0.9;
+}
+
+.container > .row:nth-of-type(2)::before{
+  background: linear-gradient(180deg, var(--blue), rgba(47,107,255,0));
+}
+
+.container > .row:nth-of-type(3)::before{
+  background: linear-gradient(180deg, rgba(255,255,255,0.4), rgba(255,255,255,0));
+}
+
+/* section titles */
+.container > .row h1{
+  width: 100%;
+  margin: 0 0 22px 0;
+  padding-left: 16px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(1.8rem, 2.6vw, 2.7rem);
+  font-weight: 800;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #f5f7ff;
+  position: relative;
+}
+
+.container > .row h1::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 5px;
+  height: calc(100% - 16px);
+  border-radius: 2px;
+  background: var(--red);
+  box-shadow: var(--glow-red);
+}
+
+.container > .row:nth-of-type(2) h1::before{
+  background: var(--blue);
+  box-shadow: var(--glow-blue);
+}
+
+.container > .row:nth-of-type(3) h1::before{
+  background: rgba(255,255,255,0.35);
+  box-shadow: none;
+}
+
+/* horizontal scroller */
+.characters{
+  display: flex;
+  gap: 22px;
+  flex-wrap: nowrap;
+  min-width: max-content;
+  padding: 8px 6px 8px 2px;
+}
+
+.overflow-auto{
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.18) transparent;
+}
+
+.overflow-auto::-webkit-scrollbar{
+  height: 10px;
+}
+
+.overflow-auto::-webkit-scrollbar-track{
+  background: rgba(255,255,255,0.04);
+  border-radius: 999px;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb{
+  background: linear-gradient(90deg, rgba(255,59,50,0.7), rgba(47,107,255,0.7));
+  border-radius: 999px;
+}
+
+/* generic card styling for bootstrap cards */
+.card{
+  min-width: 320px;
+  max-width: 320px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.025), rgba(255,255,255,0.01)),
+    linear-gradient(180deg, #11151d, #0c1017);
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 0 !important;
+  overflow: hidden;
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.03);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  position: relative;
+}
+
+.card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent 35%);
+}
+
+.card:hover{
+  transform: translateY(-8px);
+  border-color: rgba(255,255,255,0.18);
+  box-shadow:
+    0 18px 45px rgba(0,0,0,0.6),
+    0 0 0 1px rgba(255,255,255,0.03) inset;
+}
+
+/* card images */
+.card img{
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  background: #05070b;
+  border-bottom: 1px solid var(--line);
+  filter: contrast(1.05) brightness(0.88) saturate(0.8);
+}
+
+/* dark cinematic image overlay */
+.card .card-img-top,
+.card img{
+  position: relative;
+}
+
+.card img:hover{
+  filter: contrast(1.08) brightness(0.95) saturate(0.9);
+}
+
+/* card body */
+.card-body{
+  padding: 18px 18px 16px 18px !important;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.02), transparent),
+    linear-gradient(180deg, #171b23, #12161e);
+}
+
+/* card title */
+.card-title,
+.card h5,
+.card h4{
+  font-family: 'Orbitron', sans-serif;
+  color: #f4f6ff;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 12px !important;
+}
+
+/* text inside cards */
+.card-text,
+.card p,
+.card li,
+.card span:not(.btn){
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.45;
+}
+
+/* bold labels inside text */
+.card strong,
+.card b{
+  color: #d8deee;
+  font-weight: 700;
+}
+
+/* buttons */
+.btn{
+  border-radius: 0 !important;
+  font-family: 'Orbitron', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.82rem;
+  padding: 10px 16px;
+  border: none;
+  transition: all 0.22s ease;
+  box-shadow: none !important;
+}
+
+/* primary button */
+.btn-primary{
+  background: linear-gradient(135deg, #ff473d, #e12f27) !important;
+  color: white !important;
+  border-left: 3px solid #ff8a84 !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus{
+  background: linear-gradient(135deg, #ff5a51, #ff3b32) !important;
+  transform: translateY(-2px);
+  box-shadow: var(--glow-red) !important;
+}
+
+/* warning / favorite button */
+.btn-warning{
+  background: linear-gradient(135deg, #232a37, #1a1f2b) !important;
+  color: #ffd54a !important;
+  border: 1px solid rgba(255, 213, 74, 0.22) !important;
+}
+
+.btn-warning:hover,
+.btn-warning:focus{
+  background: linear-gradient(135deg, #2a3344, #202736) !important;
+  color: #ffe27b !important;
+  box-shadow: 0 0 14px rgba(255, 213, 74, 0.16) !important;
+}
+
+/* dropdown on navbar if using bootstrap */
+.dropdown .btn,
+.btn-secondary{
+  background: linear-gradient(180deg, #232834, #191f29) !important;
+  color: var(--text) !important;
+  border: 1px solid var(--line) !important;
+}
+
+.dropdown .btn:hover,
+.btn-secondary:hover{
+  border-color: var(--line-strong) !important;
+  background: linear-gradient(180deg, #283041, #1f2633) !important;
+}
+
+/* navbar */
+.navbar,
+nav{
+  border-bottom: 1px solid rgba(255,59,50,0.18);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+
+.navbar-brand img{
+  filter: brightness(1.1) contrast(1.05);
+}
+
+/* links */
+a{
+  color: #d9e4ff;
+  text-decoration: none;
+}
+
+a:hover{
+  color: white;
+}
+
+/* icons */
+svg{
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.btn:hover svg,
+.card:hover svg{
+  transform: scale(1.08);
+}
+
+/* subtle section labels on the right side */
+.container > .row::after{
+  position: absolute;
+  right: 20px;
+  top: 30px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.28);
+  text-transform: uppercase;
+}
+
+.container > .row:nth-of-type(1)::after{
+  content: "Database v0.9";
+}
+
+.container > .row:nth-of-type(2)::after{
+  content: "Engines Primed";
+}
+
+.container > .row:nth-of-type(3)::after{
+  content: "Sector Maps";
+}
+
+/* give cards that futuristic edge if there are bootstrap utility wrappers */
+.characters > *{
+  flex: 0 0 auto;
+}
+
+/* if your cards are inside column divs */
+.characters .col,
+.characters .col-3,
+.characters .col-4,
+.characters .col-md-3,
+.characters .col-md-4{
+  flex: 0 0 auto;
+}
+
+/* mobile */
+@media (max-width: 768px){
+  .container{
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .container > .row{
+    padding: 18px 12px 18px 12px;
+    margin-top: 22px !important;
+    margin-bottom: 22px !important;
+    border-radius: 14px;
+  }
+
+  .container > .row h1{
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+  }
+
+  .card{
+    min-width: 260px;
+    max-width: 260px;
+  }
+
+  .card img{
+    height: 250px;
+  }
+
+  .card-body{
+    padding: 14px !important;
+  }
+}
