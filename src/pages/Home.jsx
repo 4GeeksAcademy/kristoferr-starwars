@@ -13,7 +13,7 @@ export const Home = () => {
 	async function getAllPersons(){
 		
 		//Fetch general list of people
-		const url = "https://www.swapi.tech/api/people?page=1&limit=10";
+		const url = "https://www.swapi.tech/api/people?page=1&limit=5";
 		const response = await fetch(url);
 		const body = await response.json();
 		const personData = body.results;
@@ -38,14 +38,14 @@ export const Home = () => {
 
 		const action = {
 			type: "add_person",
-			payload: personData
+			payload: peopleFetch
 		};
 		dispatch(action);
 	}
 
 	async function getAllVehicles(){
 		
-		const url = "https://www.swapi.tech/api/vehicles?page=1&limit=10";
+		const url = "https://www.swapi.tech/api/vehicles?page=1&limit=5";
 		const response = await fetch(url);
 		const body = await response.json();
 		const vehicleData = body.results;
@@ -59,7 +59,7 @@ export const Home = () => {
 
 	async function getAllPlanets(){
 		
-		const url = "https://www.swapi.tech/api/planets?page=1&limit=10";
+		const url = "https://www.swapi.tech/api/planets?page=1&limit=5";
 		const response = await fetch(url);
 		const body = await response.json();
 		const planetData = body.results;
@@ -93,6 +93,7 @@ export const Home = () => {
 				<h1>Characters</h1>
 				<div className="characters d-flex">
 					{store.persons.map((person)=>{
+						//console.log("testing map function", person.properties.name);
 						return <PersonCard person={person} key={person.uid}/>;
 					})}
 				</div>
