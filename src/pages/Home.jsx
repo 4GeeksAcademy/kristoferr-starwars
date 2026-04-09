@@ -12,11 +12,30 @@ export const Home = () => {
 
 	async function getAllPersons(){
 		
-		const url = "https://www.swapi.tech/api/people?page=1&limit=83";
+		//Fetch general list of people
+		const url = "https://www.swapi.tech/api/people?page=1&limit=10";
 		const response = await fetch(url);
 		const body = await response.json();
 		const personData = body.results;
-		//console.log("i have loaded persons", personData);
+		console.log("i have loaded persons", personData);
+
+		//Get general list of Keys for People
+		const peopleKeys = [];
+		for(let key in personData){
+			//console.log(personData[key].uid); //1,2,3,4,5...
+			peopleKeys.push(personData[key].uid);
+		}
+
+		//Fetch all detailed data from each person and add to object
+		const peopleFetch = [];
+		for(let key in peopleKeys){
+			const detailedUrl = `https://www.swapi.tech/api/people/${peopleKeys[key]}`;
+			const response = await fetch(detailedUrl);
+			const body = await response.json();
+			peopleFetch.push(body.result);
+			console.log(peopleFetch);
+		}
+
 		const action = {
 			type: "add_person",
 			payload: personData
@@ -26,7 +45,7 @@ export const Home = () => {
 
 	async function getAllVehicles(){
 		
-		const url = "https://www.swapi.tech/api/vehicles?page=1&limit=40";
+		const url = "https://www.swapi.tech/api/vehicles?page=1&limit=10";
 		const response = await fetch(url);
 		const body = await response.json();
 		const vehicleData = body.results;
@@ -40,7 +59,7 @@ export const Home = () => {
 
 	async function getAllPlanets(){
 		
-		const url = "https://www.swapi.tech/api/planets?page=1&limit=61";
+		const url = "https://www.swapi.tech/api/planets?page=1&limit=10";
 		const response = await fetch(url);
 		const body = await response.json();
 		const planetData = body.results;
