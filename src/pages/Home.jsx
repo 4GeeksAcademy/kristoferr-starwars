@@ -50,6 +50,7 @@ export const Home = () => {
 		const body = await response.json();
 		const vehicleData = body.results;
 		//console.log("i have loaded persons", personData);
+
 		const action = {
 			type: "add_vehicle",
 			payload: vehicleData
@@ -64,6 +65,7 @@ export const Home = () => {
 		const body = await response.json();
 		const planetData = body.results;
 		//console.log("i have loaded persons", personData);
+
 		const action = {
 			type: "add_planet",
 			payload: planetData
