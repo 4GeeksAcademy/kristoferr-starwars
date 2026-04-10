@@ -10,7 +10,7 @@ export const PlanetCard = (planet) => {
 
     return(
         <div className="card m-4" style={{minWidth: "300px"}}>
-            <img src={planet.planet.image} className="card-img-top" />
+            <img src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/refs/heads/master/public/images/planets/${planet.planet.uid}.jpg`} className="card-img-top" />
             <div className="card-body">
                 <h5 className="card-title">{planet.planet.name}</h5>
                 <div className="card-gender">Climate: {planet.planet.climate}</div>

@@ -10,7 +10,7 @@ export const VehicleCard = (vehicle) => {
 
     return(
         <div className="card m-4" style={{minWidth: "300px"}}>
-            <img src={vehicle.vehicle.image} className="card-img-top" />
+            <img src={`https://raw.githubusercontent.com/breatheco-de/swapi-images/refs/heads/master/public/images/vehicles/${vehicle.vehicle.uid}.jpg`} className="card-img-top" />
             <div className="card-body">
                 <h5 className="card-title">{vehicle.vehicle.name}</h5>
                 <div className="card-gender">Model: {vehicle.vehicle.model}</div>

@@ -21,8 +21,8 @@ export const Navbar = () => {
 						<ul className="dropdown-menu">
 							{store.favorites.map((favorite)=>{
 								return (<li onClick={(event)=> 
-									console.log("testing click", favorite.uid)
-								} className="dropdown-item">{favorite.name}</li>);
+									console.log("testing click", favorite.properties.name)
+								} className="dropdown-item">{favorite.properties.name}</li>);
 							})}
 						</ul>
 					</div>
